@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Australian Trust Deed Review and Income Distribution Minute Template Action Service
+  title: Income Distribution Minute Template Creator Action Service
   version: 0.1.0
   description: >
     Custom GPT action service that extracts trust deed facts, generates a
@@ -55,7 +55,7 @@ paths:
                   description: Optional matter metadata such as matter ID, client name or preparer.
       responses:
         "200":
-          description: Extracted canonical trust minute data and checklist-stage validation.
+          description: Extracted canonical trust deed and minute-template data with checklist-stage validation.
           content:
             application/json:
               schema:
@@ -284,7 +284,7 @@ components:
     TrustMinuteData:
       type: object
       additionalProperties: true
-      description: Canonical trust minute JSON data. See schemas/trust_minute.schema.json in the service repository.
+      description: Canonical trust deed and minute-template JSON data. See schemas/trust_minute.schema.json in the service repository.
       properties:
         matter:
           type: object

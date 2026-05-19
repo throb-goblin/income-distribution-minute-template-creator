@@ -1,13 +1,13 @@
-# Trust Deed Review and Income Distribution Minute Template
+# Income Distribution Minute Template Creator
 
-This is a work-in-progress Python FastAPI action service for an Australian trust deed review and income distribution minute template Custom GPT.
+This is a work-in-progress Python FastAPI action service for an Australian trust deed review and income distribution minute template creator Custom GPT.
 
 The intended workflow is:
 
 1. Upload a trust instrument and, where relevant, a company report.
 2. Extract trust facts, clause references, company details and unresolved issues.
 3. Present a Markdown trust review checklist for user approval.
-4. After approval, generate a final checklist DOCX and a deed-specific trust minute template DOCX.
+4. After approval, generate a final checklist DOCX and a deed-specific income distribution minute template DOCX.
 
 ## Public Repository Scope
 
@@ -63,7 +63,18 @@ python scripts/lint_templates.py
 
 ## GPT Assets
 
-The `gpt/` folder contains action-backed GPT instruction assets. Use the separate `trust-deed-review` repository if you only need deed review and Markdown checklist generation without a hosted endpoint.
+The `gpt/` folder contains action-backed GPT instruction assets:
+
+- `gpt/income_distribution_minute_template_creator_instructions.md`: Custom GPT instructions.
+- `gpt/income_distribution_minute_template_creator_knowledge_manifest.json`: Setup checklist for GPT Knowledge and Actions.
+- `gpt/income_distribution_minute_template_creator_conversation_starters.md`: Optional conversation starters.
+- `gpt/field_dictionary.json`: Canonical fields and drafting guardrails.
+
+The OpenAPI schema is:
+
+- `openapi/income-distribution-minute-template-creator-action.openapi.yaml`
+
+Use the separate `trust-deed-review` repository if you only need deed review and Markdown checklist generation without a hosted endpoint.
 
 ## License
 

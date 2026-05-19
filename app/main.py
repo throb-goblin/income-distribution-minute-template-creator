@@ -1,4 +1,4 @@
-"""FastAPI entrypoint for the trust minute Custom GPT action service."""
+"""FastAPI entrypoint for the income distribution minute template action service."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from .actions import (
 
 
 app = FastAPI(
-    title="Australian Trust Minute Action Service",
+    title="Income Distribution Minute Template Creator",
     version="0.1.0",
     description="Extracts trust facts, renders a checklist first, and generates draft income distribution minutes after approval.",
 )

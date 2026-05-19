@@ -1,7 +1,7 @@
 [project]
-name = "trust-minute-action-service"
+name = "income-distribution-minute-template-creator"
 version = "0.1.0"
-description = "FastAPI action service for Australian trust minute checklist and minute generation."
+description = "FastAPI action service for Australian trust deed review and income distribution minute template generation."
 requires-python = ">=3.12"
 dependencies = [
   "fastapi>=0.111",

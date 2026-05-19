@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "title": "Income Distribution Minute Template Creator GPT Knowledge Manifest",
+  "repository": "income-distribution-minute-template-creator",
+  "recommended_gpt": {
+    "name": "Australian Trust Income Distribution Minute Template Assistant",
+    "description": "Reviews Australian trust deeds, prepares a checklist for approval, and uses an action service to create a deed-specific income distribution minute template.",
+    "actions": "Use the OpenAPI schema in openapi/income-distribution-minute-template-creator-action.openapi.yaml once the service is deployed.",
+    "capabilities": [
+      "file uploads",
+      "data analysis if available",
+      "actions"
+    ]
+  },
+  "instructions_file": "gpt/income_distribution_minute_template_creator_instructions.md",
+  "knowledge_files": [
+    "gpt/field_dictionary.json",
+    "Trust Review Checklist.csv",
+    "templates/fieldmaps/checklist_helper_map.json"
+  ],
+  "optional_files": [
+    "gpt/income_distribution_minute_template_creator_conversation_starters.md"
+  ],
+  "action_schema": "openapi/income-distribution-minute-template-creator-action.openapi.yaml",
+  "do_not_upload_as_knowledge": [
+    "matter-specific trust deeds",
+    "matter-specific company reports",
+    "client files",
+    "proprietary Word template binaries"
+  ],
+  "matter_document_handling": "Matter documents should be uploaded only inside the relevant GPT chat. Word templates stay in the action service environment, not GPT Knowledge.",
+  "scope": "Action-backed extraction, checklist approval, validation, final checklist DOCX and deed-specific income distribution minute template DOCX generation."
+}

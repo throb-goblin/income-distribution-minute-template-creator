@@ -1,2 +1,1 @@
-"""Trust minute action service package."""
-
+"""Income distribution minute template creator package."""

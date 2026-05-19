@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "title": "Income Distribution Minute Template Creator Field Dictionary",
+  "purpose": "Canonical field, evidence, checklist and minute-template reference for the action-backed trust deed review and income distribution minute template service.",
+  "extracted_value_shape": {
+    "required_keys": [
+      "value",
+      "source_document_id",
+      "page",
+      "clause_ref",
+      "heading",
+      "quote",
+      "confidence",
+      "issue_if_any"
+    ],
+    "confidence_values": [
+      "high",
+      "medium",
+      "low"
+    ],
+    "quote_word_limit": 50
+  },
+  "linked_clause_fields": [
+    "trust.vesting.clause_ref",
+    "trust.vesting.date",
+    "income.definition_clause_ref",
+    "income.distribution_power_clause_ref",
+    "income.streaming_clause_ref",
+    "income.accumulation_clause_ref",
+    "capital.determination_clause_ref",
+    "beneficiaries.definition_clause_ref",
+    "unitholders.register_clause_ref",
+    "distribution.method_clause_ref",
+    "distribution.resolution_deadline_clause_ref",
+    "amendment_review.power_clause_ref"
+  ],
+  "template_selection": {
+    "trust.type=discretionary": "Use the discretionary trust minute template.",
+    "trust.type=unit": "Use the unit trust minute template.",
+    "trustee.is_corporate=true and directors>=2": "Use corporate multi-director execution.",
+    "trustee.is_corporate=true and directors=1": "Use corporate sole-director execution.",
+    "trustee.is_corporate=false and trustees=1": "Use individual sole-trustee execution.",
+    "trustee.is_corporate=false and trustees>=2": "Use individual multi-trustee execution."
+  },
+  "checklist_output": {
+    "source_rows": "Trust Review Checklist.csv",
+    "helper_map": "templates/fieldmaps/checklist_helper_map.json",
+    "columns": [
+      "Item",
+      "Relevant clause(s)",
+      "Extracted detail",
+      "Status"
+    ],
+    "status_values": [
+      "For approval",
+      "Review",
+      "Approved"
+    ],
+    "missing_clause_text": "Clause not found",
+    "final_docx_format": "Landscape, Arial 8.",
+    "helper_text_policy": "Do not preserve helper text in generated chat or DOCX output."
+  },
+  "trust_type_extraction": {
+    "unit": [
+      "unit",
+      "units",
+      "unit holder",
+      "unitholder",
+      "initial unitholder",
+      "unit register",
+      "unit certificate"
+    ],
+    "discretionary": "Discretionary/family trust wording and beneficiary-class concepts without substantive unit-capital language.",
+    "hybrid_or_unsure": "Both concepts appear, or the evidence does not support confident classification."
+  },
+  "vesting_extraction": {
+    "goal": "Identify the latest date or mechanism by which trust assets vest.",
+    "search_terms": [
+      "Vesting Date",
+      "Termination Date",
+      "perpetuity period",
+      "rule against perpetuities",
+      "less one day"
+    ],
+    "calculation_rule": "Do not invent a calendar date. Calculate or state one only where deed date, governing law and formula clearly support it."
+  },
+  "perpetuity_guide": {
+    "New South Wales": "80 years from the date the settlement takes effect.",
+    "Victoria": "80 years from the date the settlement takes effect.",
+    "Queensland": "125 years from the day the disposition is made unless the trust terms state or imply a shorter period. The 125-year regime commenced on 1 August 2025.",
+    "South Australia": "No fixed statutory perpetuity period; rules against perpetuities and excessive accumulations are abolished.",
+    "Western Australia": "80 years from the date the settlement takes effect.",
+    "Tasmania": "80 years from the date the settlement takes effect.",
+    "Australian Capital Territory": "80 years from the date the settlement takes effect.",
+    "Northern Territory": "Lives in being plus 21 years, or 80 years from settlement taking effect, whichever the settlement specifies; if none is specified, 80 years applies."
+  },
+  "minute_template_guardrails": [
+    "Preserve the source minute template format and wording.",
+    "Do not add generated trust/deed details tables, clause-reference schedules, drafting-aid disclaimers or explanatory comments.",
+    "Keep standard income determination, income class/category, capital non-determination, method of distribution and confirmation wording unless the deed requires a mandatory change or the user asks for one.",
+    "For broadly defined discretionary trust beneficiaries, use the default discretionary template wording.",
+    "For unit trusts, use schedule, unit register or unit certificate evidence to identify unit holdings where available."
+  ],
+  "validation_blockers": [
+    "Trust type is unsure.",
+    "Trustee type is unresolved.",
+    "Corporate trustee details are missing where a corporate trustee is required.",
+    "Trust instrument is missing.",
+    "Vesting date or vesting clause is missing.",
+    "Income definition or distribution power clause is missing.",
+    "A deed amendment is noted but the amended deed is not included."
+  ],
+  "drafting_guardrails": [
+    "Never guess a clause number.",
+    "Use Clause not found where the deed does not disclose a clause.",
+    "Treat the approved checklist as the source of truth for minute template generation.",
+    "Generated documents are drafting aids for review by an Australian legal practitioner."
+  ]
+}
