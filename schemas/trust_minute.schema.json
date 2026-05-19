@@ -1,0 +1,301 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/trust_minute.schema.json",
+  "title": "Australian Trust Minute Canonical Data",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "matter",
+    "source_documents",
+    "trust",
+    "trustee",
+    "company_report",
+    "deed_history",
+    "appointor_guardian",
+    "beneficiaries",
+    "unitholders",
+    "income",
+    "capital",
+    "distribution",
+    "family_trust_election",
+    "amendment_review",
+    "checklist",
+    "issues",
+    "evidence"
+  ],
+  "properties": {
+    "matter": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "matter_id": { "type": ["string", "null"] },
+        "client_name": { "type": ["string", "null"] },
+        "prepared_by": { "type": ["string", "null"] },
+        "jurisdiction": { "type": ["string", "null"] }
+      }
+    },
+    "source_documents": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "trust_instrument_present": { "$ref": "#/$defs/evidencedValue" },
+        "trust_instrument_filename": { "$ref": "#/$defs/evidencedValue" },
+        "company_report_present": { "$ref": "#/$defs/evidencedValue" },
+        "company_report_filename": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "trust": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "name": { "$ref": "#/$defs/evidencedValue" },
+        "type": {
+          "allOf": [{ "$ref": "#/$defs/evidencedValue" }],
+          "description": "Expected values: discretionary, unit, hybrid or unsure."
+        },
+        "deed_date": { "$ref": "#/$defs/evidencedValue" },
+        "settlor": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "name": { "$ref": "#/$defs/evidencedValue" }
+          }
+        },
+        "initial_unitholder": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "name": { "$ref": "#/$defs/evidencedValue" }
+          }
+        },
+        "initial_property": { "$ref": "#/$defs/evidencedValue" },
+        "place_of_settlement": { "$ref": "#/$defs/evidencedValue" },
+        "governing_law": { "$ref": "#/$defs/evidencedValue" },
+        "vesting": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "clause_ref": { "$ref": "#/$defs/evidencedValue" },
+            "date": { "$ref": "#/$defs/evidencedValue" }
+          }
+        }
+      }
+    },
+    "trustee": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "name": { "$ref": "#/$defs/evidencedValue" },
+        "type": { "$ref": "#/$defs/evidencedValue" },
+        "is_corporate": { "$ref": "#/$defs/evidencedValue" },
+        "acn": { "$ref": "#/$defs/evidencedValue" },
+        "directors": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "secretary": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "shareholders": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "individual_trustees": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } }
+      }
+    },
+    "company_report": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "company_name": { "$ref": "#/$defs/evidencedValue" },
+        "acn": { "$ref": "#/$defs/evidencedValue" },
+        "registration_status": { "$ref": "#/$defs/evidencedValue" },
+        "registered_office": { "$ref": "#/$defs/evidencedValue" },
+        "directors": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "secretary": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "shareholders": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "report_date": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "deed_history": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "amendments": { "type": "array", "items": { "$ref": "#/$defs/evidencedValue" } },
+        "amendment_noted": { "$ref": "#/$defs/evidencedValue" },
+        "amended_deed_included": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "appointor_guardian": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "appointors": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "guardians": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "succession_clause_ref": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "beneficiaries": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "classes": { "$ref": "#/$defs/evidencedValue" },
+        "primary": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "general": { "type": "array", "items": { "$ref": "#/$defs/personEvidence" } },
+        "excluded": { "$ref": "#/$defs/evidencedValue" },
+        "foreign_exclusion_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "definition_clause_ref": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "unitholders": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "holdings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "name": { "type": ["string", "null"] },
+              "units": { "type": ["number", "string", "null"] },
+              "class": { "type": ["string", "null"] },
+              "evidence": { "$ref": "#/$defs/evidencedValue" }
+            }
+          }
+        },
+        "register_clause_ref": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "income": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "definition_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "distribution_power_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "streaming_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "accumulation_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "determination_power_clause_ref": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "capital": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "determination_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "advancement_clause_ref": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "distribution": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "proportion"],
+            "additionalProperties": true,
+            "properties": {
+              "name": { "type": "string" },
+              "proportion": { "type": ["number", "string"] },
+              "income_class": { "type": ["string", "null"] },
+              "method": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "income_year": { "$ref": "#/$defs/evidencedValue" },
+        "resolution_date": { "$ref": "#/$defs/evidencedValue" },
+        "method": { "$ref": "#/$defs/evidencedValue" },
+        "method_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "resolution_deadline": { "$ref": "#/$defs/evidencedValue" },
+        "resolution_deadline_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "balance_to_named_beneficiary": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "family_trust_election": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "election_made": { "$ref": "#/$defs/evidencedValue" },
+        "specified_individual": { "$ref": "#/$defs/evidencedValue" },
+        "income_year": { "$ref": "#/$defs/evidencedValue" },
+        "amendment_required": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "amendment_review": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "power_clause_ref": { "$ref": "#/$defs/evidencedValue" },
+        "consent_required": { "$ref": "#/$defs/evidencedValue" },
+        "other_requirements": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "checklist": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "approved": { "$ref": "#/$defs/evidencedValue" },
+        "approved_at": { "$ref": "#/$defs/evidencedValue" },
+        "approved_by": { "$ref": "#/$defs/evidencedValue" }
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/issue" }
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceRecord" }
+    }
+  },
+  "$defs": {
+    "evidencedValue": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["value", "source_document_id", "page", "clause_ref", "heading", "quote", "confidence", "issue_if_any"],
+      "properties": {
+        "value": { "type": ["string", "number", "integer", "boolean", "array", "object", "null"] },
+        "source_document_id": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "clause_ref": { "type": ["string", "null"] },
+        "heading": { "type": ["string", "null"] },
+        "quote": {
+          "type": "string",
+          "description": "Source quote capped by the extraction layer at 50 words."
+        },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "issue_if_any": { "type": ["string", "null"] }
+      }
+    },
+    "personEvidence": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": ["string", "null"] },
+        "source_document_id": { "type": ["string", "null"] },
+        "page": { "type": ["integer", "null"] },
+        "quote": { "type": ["string", "null"] },
+        "confidence": { "enum": ["high", "medium", "low"] }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "field_path": { "type": ["string", "null"] },
+        "blocking": { "type": ["boolean", "null"] },
+        "severity": { "type": ["string", "null"] }
+      }
+    },
+    "evidenceRecord": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "source_document_id": { "type": "string" },
+        "page": { "type": ["integer", "null"] },
+        "clause_ref": { "type": ["string", "null"] },
+        "heading": { "type": ["string", "null"] },
+        "quote": { "type": "string" }
+      }
+    }
+  }
+}

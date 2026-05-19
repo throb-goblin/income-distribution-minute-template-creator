@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/checklist.schema.json",
+  "title": "Trust Minute Checklist Render Result",
+  "type": "object",
+  "required": ["checklist_summary", "validation_result", "openaiFileResponse"],
+  "properties": {
+    "checklist_summary": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "trust_name": { "type": ["string", "null"] },
+        "trust_type": { "type": ["string", "null"] },
+        "rows_populated": { "type": "integer" },
+        "not_found_clause_fields": { "type": "array", "items": { "type": "string" } },
+        "unresolved_issues": { "type": "array" }
+      }
+    },
+    "validation_result": { "$ref": "extraction_result.schema.json#/$defs/validationResult" },
+    "openaiFileResponse": { "$ref": "extraction_result.schema.json#/$defs/openaiFileResponse" }
+  }
+}

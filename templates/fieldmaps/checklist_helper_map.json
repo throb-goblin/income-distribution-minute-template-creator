@@ -1,0 +1,471 @@
+{
+  "version": 1,
+  "description": "Helper and mapping context for Trust Review Checklist.csv. This file is for the service/model only; generated Markdown and DOCX output must not expose helper_context values.",
+  "source_csv": "Trust Review Checklist.csv",
+  "output_columns": [
+    "Item",
+    "Relevant clause(s)",
+    "Extracted detail",
+    "Status"
+  ],
+  "status_options": [
+    "For approval",
+    "Review",
+    "Approved"
+  ],
+  "rows": [
+    {
+      "row_id": "trust_name",
+      "item": "Trust name",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.name",
+      "helper_context": {
+        "relevant_clause": "[Usually only indicated in trust instrument Schedule, but some deeds specifically note the name in a clause, if that is the case, cite that clause]",
+        "extracted_detail": "[Insert trust name].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "trust_type",
+      "item": "Trust type",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.type",
+      "helper_context": {
+        "relevant_clause": "[If stated cite, if not stated leave blank]",
+        "extracted_detail": "[Discretionary Trust/Unit Trust/Hybrid Trust/Testamentary Trust/Other (please detail) - delete as appropriate].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "deed_date",
+      "item": "Deed date",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.deed_date",
+      "helper_context": {
+        "relevant_clause": "[Usually only indicated in trust instrument Schedule, but some deeds specifically note the name in a clause, if that is the case, cite that clause]",
+        "extracted_detail": "[Insert date trust established]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "deed_amendments_supplied",
+      "item": "Deed amendments supplied",
+      "applies_to": "all",
+      "builder": "amendments",
+      "helper_context": {
+        "relevant_clause": "[Leave blank].",
+        "extracted_detail": "[State \"None provided or apparent\" if none attached, if an amendment is attached, consider it a part of the deed].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "settlor",
+      "item": "Settlor",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.settlor.name",
+      "helper_context": {
+        "relevant_clause": "[Usually only indicated in trust instrument Schedule, but some deeds specifically note the name in a clause, if that is the case, cite that clause]",
+        "extracted_detail": "[Insert settlor name]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "trustee",
+      "item": "Trustee",
+      "applies_to": "all",
+      "builder": "trustee",
+      "helper_context": {
+        "relevant_clause": "[Usually only indicated in trust instrument Schedule, but some deeds specifically note the name in a clause, if that is the case, cite that clause]",
+        "extracted_detail": "[Insert trustee name(s), if corporate trustee add ACN after name]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "trustee_type",
+      "item": "Trustee type",
+      "applies_to": "all",
+      "builder": "trustee_type",
+      "helper_context": {
+        "relevant_clause": "[Schedule and/or Company Profile]",
+        "extracted_detail": "[Corporate Trustee, Individual Trustee]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "corporate_trustee_directors",
+      "item": "Corporate trustee directors",
+      "applies_to": "corporate",
+      "builder": "directors",
+      "helper_context": {
+        "relevant_clause": "[no clause reference needed]",
+        "extracted_detail": "[Insert director and secretary name(s)]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "corporate_trustee_shareholders",
+      "item": "Corporate trustee shareholders",
+      "applies_to": "corporate",
+      "builder": "shareholders",
+      "helper_context": {
+        "relevant_clause": "[no clause reference needed]",
+        "extracted_detail": "[Insert shareholder name(s)]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "place_of_settlement",
+      "item": "Place of settlement",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.place_of_settlement",
+      "helper_context": {
+        "relevant_clause": "[Usually stated somewhere in the deed, often the schedule]",
+        "extracted_detail": "[Usually stated somewhere in the deed, often the schedule]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "applicable_law",
+      "item": "Applicable law",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.governing_law",
+      "helper_context": {
+        "relevant_clause": "[Usually stated somewhere in the deed, often the schedule]",
+        "extracted_detail": "[State either: Victoria, New South Wales, Queensland, South Australia, Western Australia, Tasmania, Australian Capital Territory, Northern Territory, Foreign (state the country), or, Cannot find].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "appointors_or_guardians",
+      "item": "Appointors or Guardians",
+      "applies_to": "all",
+      "builder": "appointors_guardians",
+      "helper_context": {
+        "relevant_clause": "[Usually only indicated in trust instrument Schedule, but some deeds specifically note the name in a clause, if that is the case, cite that clause]",
+        "extracted_detail": "[Insert appointor and/or guardian name(s)]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "successive_appointor_or_guardians",
+      "item": "Successive appointor or guardians",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "appointor_guardian.appointors",
+      "clause_paths": [
+        "appointor_guardian.succession_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Check whether any future appointor or guardian is provided for in the deed]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "settled_sum",
+      "item": "Settled sum",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.initial_property",
+      "helper_context": {
+        "relevant_clause": "[Usually stated somewhere in the deed, often the schedule]",
+        "extracted_detail": "[The intial trust property, often noted as nominal sum, e.g. $10, $20, $50 or $100].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "primary_beneficiary",
+      "item": "Primary beneficiary",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "beneficiaries.primary",
+      "clause_paths": [
+        "beneficiaries.definition_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[Often found in the definition clause or schedule of the deed].",
+        "extracted_detail": "[State who they are, if there are none state this. It is common drafting technique in discretionary trust deeds to specify a “primary beneficiary or a few” in the schedule and then define all other general or other beneficiaries based on their relationships to the primary beneficiaries].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "beneficiary_definition_classes",
+      "item": "Beneficiary definition / classes",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "beneficiaries.classes",
+      "clause_paths": [
+        "beneficiaries.definition_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[Often found in the definition clause or schedule of the deed].",
+        "extracted_detail": "[Answer yes or no and define or quote from the deed. As discussed above, often with discretionary trusts, these beneficiaries are defined based on their relationship with any primary or main beneficiaries].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "excluded_persons",
+      "item": "Excluded persons",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "beneficiaries.excluded",
+      "clause_paths": [
+        "beneficiaries.definition_clause_ref",
+        "beneficiaries.foreign_exclusion_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[Often found in the definition clause or schedule of the deed].",
+        "extracted_detail": "[Check for exclusions and indicated what they are if there are any. If there are none, say so. Are foreign entities excluded from being a beneficiary of the trust, and if so for which jurisdiction(s)? – i.e. for surcharge/foreign purchaser duty and surcharge land tax for real property interests.].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "income_and_capital_beneficiary_difference",
+      "item": "Are the income beneficiaries and capital beneficiaries potentially a different group of persons?",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "beneficiaries.classes",
+      "clause_paths": [
+        "beneficiaries.definition_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[Often found in the definition clause or schedule of the deed].",
+        "extracted_detail": "[Check if there are differing income and capital beneficiaries. Some deeds might only, for example, list some individuals or a class therein as the capital or corpus beneficiaries].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "unit_holdings",
+      "item": "If a unit trust, detail number of units held by each beneficiary.",
+      "applies_to": "unit",
+      "builder": "unit_holdings",
+      "helper_context": {
+        "relevant_clause": "[Refer to unit register, unit certificates or any schedules at the end of the deed]",
+        "extracted_detail": "[If not evident, request user confirm].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "income_definition",
+      "item": "Income definition",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "income.definition_clause_ref",
+      "clause_paths": [
+        "income.definition_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Most modern deeds will give a default definition of “income” or “distributable income” in the definition section of the deed. Some also state that the trustee can adopt an alternative definition].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "determine_trust_income",
+      "item": "Determine trust income",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "income.determination_power_clause_ref",
+      "clause_paths": [
+        "income.determination_power_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Does the trust instrument permit a determination of trust law income for Div 6 purposes, that is, can the trustee determine whether receipts are income or capital, can the trustee determine whether deductions, losses and outgoings are borne against income or capital? Note whether trustee has the discretion to do this].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "income_accumulation",
+      "item": "Income accumulation",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "income.accumulation_clause_ref",
+      "clause_paths": [
+        "income.accumulation_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Does the trust instrument give the trustee the power to accumulate income? Note whether trustee has the discretion to do this].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "income_classification_streaming",
+      "item": "Income classification / streaming",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "income.streaming_clause_ref",
+      "clause_paths": [
+        "income.streaming_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Does the trust instrument confer any specific powers to the trustee to allocate “income” into various classes? Most modern deeds give the trustee the power to categorise or split out the trust income into classes or categories].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "default_income_distribution",
+      "item": "Default income distribution",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "income.distribution_power_clause_ref",
+      "clause_paths": [
+        "income.distribution_power_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Indicate if there is a default distribution clause, and who the default beneficiaries are. If there are none, say so].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "resolution_deadline",
+      "item": "Resolution deadline",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "distribution.resolution_deadline",
+      "clause_paths": [
+        "distribution.resolution_deadline_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Usually 30 June, but check].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "set_aside_payment_mechanics",
+      "item": "Set aside / payment mechanics",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "distribution.method",
+      "clause_paths": [
+        "distribution.method_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Does the trust instrument prescribe a manner of distributing income or capital? E.g. held on separate trust, credited to beneficiary unpaid present entitlement account, paid by X date. Indicate if trustee is given discretion to choose, or if a method is prescribed or if the deed is silent (if silent, use the template wording for the minute].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "capital_distribution_power",
+      "item": "Capital distribution power",
+      "applies_to": "all",
+      "builder": "capital_power",
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Does the trust instrument give the trustee the power to advance capital before vesting? Note whether trustee has the discretion to do this].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "capital_default_distribution",
+      "item": "Capital default distribution",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "capital.determination_clause_ref",
+      "clause_paths": [
+        "capital.determination_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Indicate if there is a default distribution clause, and who the default beneficiaries are. Often this might occur upon vesting. If there are none, say so].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "vesting_date_mechanism",
+      "item": "Vesting date / mechanism",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "trust.vesting.date",
+      "clause_paths": [
+        "trust.vesting.clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[Often found in the definition or term clause of the deed]",
+        "extracted_detail": "[This is not to be confused with the vesting clause, what we need here is the latest possible date in which the deed can be vested, check jurisdiction]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "amendment_power",
+      "item": "Amendment power",
+      "applies_to": "all",
+      "builder": "amendment_power",
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[State how broad or extensive this power is and any restrictions, or approvals are required].",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "amendment_income_definition",
+      "item": "Does the deed require an amendment to insert an appropriate definition of income?",
+      "applies_to": "all",
+      "builder": "amend_income_definition",
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Yes, No, Unsure]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "amendment_income_capital_characterisation",
+      "item": "Does that deed require an amendment to insert an appropriate Income/Capital characterisation clause?",
+      "applies_to": "all",
+      "builder": "amend_characterisation",
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Yes, No, Unsure]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "amendment_income_streaming",
+      "item": "Does the deed require an amendment to insert an appropriate “income streaming” clause?",
+      "applies_to": "all",
+      "builder": "amend_streaming",
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Yes, No, Unsure]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "amendment_separate_income_capital_beneficiaries",
+      "item": "If recommending an amendment to the deed, does this trust have separate income and capital beneficiaries? (i.e. resettlement risk)",
+      "applies_to": "all",
+      "builder": "simple",
+      "detail_path": "beneficiaries.classes",
+      "clause_paths": [
+        "beneficiaries.definition_clause_ref"
+      ],
+      "helper_context": {
+        "relevant_clause": "[State the clause if applicable].",
+        "extracted_detail": "[Yes, No, Unsure]",
+        "status": "[For approval,Review,Approved]"
+      }
+    },
+    {
+      "row_id": "execution_layout",
+      "item": "Execution layout for template",
+      "applies_to": "all",
+      "builder": "execution_layout",
+      "helper_context": {
+        "relevant_clause": "[Leave blank].",
+        "extracted_detail": "[Add in as apporpriate: Corporate trustee with a sole director and secretary, Corporate trustee with X directors, Sole individual trustee, X Individual trustee]",
+        "status": "[For approval,Review,Approved]"
+      }
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+openapi: 3.1.0
+info:
+  title: Australian Trust Minute Action Service
+  version: 0.1.0
+  description: >
+    Custom GPT action service that extracts trust facts, generates a populated
+    Markdown checklist first for chat review, validates user-approved inputs,
+    and only then generates final Word checklist and minute template documents.
+servers:
+  - url: https://8gbz9qr3-8000.aue.devtunnels.ms
+paths:
+  /health:
+    get:
+      operationId: checkTrustMinuteActionHealth
+      x-openai-isConsequential: false
+      summary: Check action service health
+      description: >
+        Use this only to troubleshoot action connectivity. It returns a small
+        status payload and does not process files.
+      responses:
+        "200":
+          description: Service health status.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status:
+                    type: string
+  /extract:
+    post:
+      operationId: extractTrustFacts
+      x-openai-isConsequential: false
+      summary: Extract trust facts and clause references
+      description: >
+        Call this after the user has uploaded the trust instrument. If a
+        corporate trustee is apparent or the user says there is one, include the
+        company report as well. The service extracts facts, evidence, unresolved
+        issues and initial validation status. It does not generate documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [openaiFileIdRefs]
+              properties:
+                openaiFileIdRefs:
+                  $ref: "#/components/schemas/OpenAIFileIdRefs"
+                matter:
+                  type: object
+                  additionalProperties: true
+                  description: Optional matter metadata such as matter ID, client name or preparer.
+      responses:
+        "200":
+          description: Extracted canonical trust minute data and checklist-stage validation.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [session_id, extraction_result, validation_result]
+                properties:
+                  session_id:
+                    type: ["string", "null"]
+                  extraction_result:
+                    anyOf:
+                      - $ref: "#/components/schemas/TrustMinuteData"
+                      - type: "null"
+                  validation_result:
+                    $ref: "#/components/schemas/ValidationResult"
+                  error:
+                    $ref: "#/components/schemas/ActionError"
+  /generate-checklist:
+    post:
+      operationId: generateTrustChecklist
+      x-openai-isConsequential: false
+      summary: Generate the Markdown checklist
+      description: >
+        Create the CSV-backed checklist in Markdown for chat review. The user
+        approves or corrects extracted details before Word documents are made.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [session_id]
+              properties:
+                session_id:
+                  type: string
+                user_overrides:
+                  type: object
+                  additionalProperties: true
+                  description: Optional corrections from checklist review or extraction review, using canonical field paths.
+      responses:
+        "200":
+          description: Checklist summary with Markdown, unless validation blocks generation.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [checklist_summary, validation_result]
+                properties:
+                  checklist_summary:
+                    type: ["object", "null"]
+                    additionalProperties: true
+                    properties:
+                      checklist_id:
+                        type: string
+                      checklist_markdown:
+                        type: string
+                  validation_result:
+                    $ref: "#/components/schemas/ValidationResult"
+                  error:
+                    $ref: "#/components/schemas/ActionError"
+  /validate:
+    post:
+      operationId: validateTrustMinuteInputs
+      x-openai-isConsequential: false
+      summary: Validate proposed minute inputs
+      description: >
+        Validate after checklist approval. Annual details are not required.
+        If blockers are returned, explain the missing checklist evidence.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [session_id]
+              properties:
+                session_id:
+                  type: string
+                approved_checklist:
+                  type: object
+                  additionalProperties: true
+                  description: User-approved or corrected checklist data.
+                approved_checklist_id:
+                  type: string
+                  description: Checklist ID from generateTrustChecklist when the user approves that exact checklist.
+                proposed_overrides:
+                  type: object
+                  additionalProperties: true
+      responses:
+        "200":
+          description: Structured validation only.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [stage, valid, blocking_issues, non_blocking_issues]
+                additionalProperties: true
+                properties:
+                  stage:
+                    type: string
+                  valid:
+                    type: boolean
+                  can_generate_checklist:
+                    type: boolean
+                  can_generate_minute:
+                    type: boolean
+                  blocking_issues:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ValidationIssue"
+                  non_blocking_issues:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ValidationIssue"
+                  error:
+                    $ref: "#/components/schemas/ActionError"
+  /generate-minute:
+    post:
+      operationId: generateTrustMinute
+      x-openai-isConsequential: false
+      summary: Generate Word minute template and checklist
+      description: >
+        Generate a deed-specific reusable minute template after checklist
+        approval and validation. Returns the landscape checklist DOCX and
+        minute template DOCX.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [session_id]
+              properties:
+                session_id:
+                  type: string
+                approved_checklist:
+                  type: object
+                  additionalProperties: true
+                  description: User-approved or corrected checklist data.
+                approved_checklist_id:
+                  type: string
+                  description: Checklist ID from generateTrustChecklist when the user approves that exact checklist.
+                output_options:
+                  type: object
+                  additionalProperties: true
+                user_overrides:
+                  type: object
+                  additionalProperties: true
+      responses:
+        "200":
+          description: Minute summary plus final checklist and minute DOCX files.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [minute_summary, validation_result, openaiFileResponse]
+                properties:
+                  minute_summary:
+                    type: ["object", "null"]
+                    additionalProperties: true
+                  validation_result:
+                    $ref: "#/components/schemas/ValidationResult"
+                  openaiFileResponse:
+                    $ref: "#/components/schemas/OpenAIFileResponse"
+                  error:
+                    $ref: "#/components/schemas/ActionError"
+components:
+  schemas:
+    OpenAIFileIdRefs:
+      type: array
+      minItems: 1
+      maxItems: 2
+      description: >
+        Files uploaded in the conversation. Include the trust instrument first
+        and, where there is or may be a corporate trustee, include the company
+        report second. Use the actual uploaded file references supplied by
+        ChatGPT, not just the visible file IDs. Each object should include
+        name, id, mime_type and download_link when available.
+      items:
+        oneOf:
+          - type: string
+          - $ref: "#/components/schemas/FileRef"
+    FileRef:
+      type: object
+      additionalProperties: true
+      properties:
+        id:
+          type: string
+          description: OpenAI file ID.
+        file_id:
+          type: string
+        openai_file_id:
+          type: string
+        filename:
+          type: string
+        name:
+          type: string
+        mime_type:
+          type: string
+        download_link:
+          type: string
+          description: Temporary URL supplied by ChatGPT for the action service to download the file.
+        download_url:
+          type: string
+          description: Alternate temporary download URL field name.
+        url:
+          type: string
+          description: Alternate temporary download URL field name.
+        content_base64:
+          type: string
+          description: Optional inline base64 for local testing.
+    OpenAIFileResponse:
+      type: ["array", "null"]
+      description: Files returned to ChatGPT. Each file is base64 encoded in the content field.
+      items:
+        type: object
+        additionalProperties: true
+        properties:
+          name:
+            type: string
+          mime_type:
+            type: string
+          content:
+            type: string
+            format: byte
+            description: Base64-encoded file content.
+    TrustMinuteData:
+      type: object
+      additionalProperties: true
+      description: Canonical trust minute JSON data. See schemas/trust_minute.schema.json in the service repository.
+      properties:
+        matter:
+          type: object
+          additionalProperties: true
+        source_documents:
+          type: object
+          additionalProperties: true
+        trust:
+          type: object
+          additionalProperties: true
+        trustee:
+          type: object
+          additionalProperties: true
+        company_report:
+          type: object
+          additionalProperties: true
+        deed_history:
+          type: object
+          additionalProperties: true
+        appointor_guardian:
+          type: object
+          additionalProperties: true
+        beneficiaries:
+          type: object
+          additionalProperties: true
+        unitholders:
+          type: object
+          additionalProperties: true
+        income:
+          type: object
+          additionalProperties: true
+        capital:
+          type: object
+          additionalProperties: true
+        distribution:
+          type: object
+          additionalProperties: true
+        checklist:
+          type: object
+          additionalProperties: true
+        issues:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        evidence:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    ValidationResult:
+      type: object
+      required: [stage, valid, blocking_issues, non_blocking_issues]
+      additionalProperties: true
+      properties:
+        stage:
+          type: string
+        valid:
+          type: boolean
+        can_generate_checklist:
+          type: boolean
+        can_generate_minute:
+          type: boolean
+        blocking_issues:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValidationIssue"
+        non_blocking_issues:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValidationIssue"
+    ActionError:
+      type: object
+      additionalProperties: true
+      properties:
+        error_id:
+          type: string
+        type:
+          type: string
+        message:
+          type: string
+        log_path:
+          type: string
+    ValidationIssue:
+      type: object
+      required: [code, message, severity]
+      additionalProperties: true
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        field_path:
+          type: string
+        severity:
+          type: string
+          enum: [blocking, non_blocking]

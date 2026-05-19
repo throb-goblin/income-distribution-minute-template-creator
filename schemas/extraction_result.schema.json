@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/extraction_result.schema.json",
+  "title": "Trust Minute Extraction Result",
+  "type": "object",
+  "required": ["session_id", "extraction_result", "validation_result"],
+  "properties": {
+    "session_id": { "type": "string" },
+    "extraction_result": { "$ref": "trust_minute.schema.json" },
+    "validation_result": { "$ref": "#/$defs/validationResult" }
+  },
+  "$defs": {
+    "validationResult": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["stage", "valid", "blocking_issues", "non_blocking_issues"],
+      "properties": {
+        "stage": { "type": "string" },
+        "valid": { "type": "boolean" },
+        "can_generate_checklist": { "type": "boolean" },
+        "can_generate_minute": { "type": "boolean" },
+        "blocking_issues": { "type": "array", "items": { "$ref": "#/$defs/validationIssue" } },
+        "non_blocking_issues": { "type": "array", "items": { "$ref": "#/$defs/validationIssue" } }
+      }
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["code", "message", "severity"],
+      "properties": {
+        "code": { "type": "string" },
+        "message": { "type": "string" },
+        "field_path": { "type": ["string", "null"] },
+        "severity": { "enum": ["blocking", "non_blocking"] }
+      }
+    },
+    "openaiFileResponse": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": { "type": "string" },
+          "mime_type": { "type": "string" },
+          "content": { "type": "string", "format": "byte" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+tmp/
+tools/
+*.log
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+Thumbs.db
+
+# Environment and secret material.
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+*.cer
+*.crt
+
+# Matter/client documents and proprietary Word templates.
+*.pdf
+*.doc
+*.docx
+*.docm
+*.dotm
+*.dotx
+
+# Keep placeholder directories while excluding template binaries.
+!templates/source/
+!templates/source/.gitkeep
+!templates/working/
+!templates/working/.gitkeep
+
+# Local editor/workspace files.
+*.code-workspace
+
+# Local GPT artwork.
+gpt/gpt_icon.jpg
