@@ -1,4 +1,4 @@
-# Trust Deed Review And Income Distribution Minute Template
+# Trust Deed Review and Income Distribution Minute Template
 
 This is a work-in-progress Python FastAPI action service for an Australian trust deed review and income distribution minute template Custom GPT.
 
