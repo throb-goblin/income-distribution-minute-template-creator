@@ -26,6 +26,8 @@ def test_minute_template_generation_leaves_no_raw_placeholders(sample_data: dict
     for placeholder in set(RAW_PLACEHOLDERS) - retained_template_placeholders:
         assert placeholder not in text
     assert "Example Family Trust" in text
+    assert "{{" not in text
+    assert "}}" not in text
     assert "Year ended 30 June YEAR" in text
     assert "INDIVIDUAL A" in text
     assert "Clause reference schedule" not in text

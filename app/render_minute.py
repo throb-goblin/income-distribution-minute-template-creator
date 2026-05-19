@@ -152,14 +152,26 @@ def _visible_placeholder_replacements(data: dict[str, Any], distribution: dict[s
 
     replacements = {
         "Trust Name": get_field_value(data, "trust.name", ""),
+        "{{TrustName}}": get_field_value(data, "trust.name", ""),
         "YEAR": income_year,
         "______________________": resolution_date,
         "Est Date": get_field_value(data, "trust.deed_date", ""),
+        "{{EstDate}}": get_field_value(data, "trust.deed_date", ""),
         "Trustee 1": trustee_names[0] if trustee_names else trustee_name,
         "XXX XXX XXX": acn,
+        "{{TrusteeACN}}": acn,
         "Settlor 1": get_field_value(data, "trust.settlor.name", ""),
+        "{{Settlor1}}": get_field_value(data, "trust.settlor.name", ""),
         "InitialUnitholder 1": get_field_value(data, "trust.initial_unitholder.name", ""),
+        "{{InitialUnitholder1}}": get_field_value(data, "trust.initial_unitholder.name", ""),
         "V Date": get_field_value(data, "trust.vesting.date", ""),
+        "{{VDate}}": get_field_value(data, "trust.vesting.date", ""),
+        "{{VestingDate}}": "Vesting Date",
+        "{{DistributableIncome}}": "Distributable Income",
+        "{{NetIncome}}": "Net Income",
+        "{{Beneficiaries}}": "Beneficiaries",
+        "{{Unitholders}}": "Unitholders",
+        "{{Capital}}": "Capital",
         "clause 1.33": _clause_text(data, "trust.vesting.clause_ref"),
         "clause 1.29": _clause_text(data, "trust.vesting.clause_ref"),
         "Clause 9": _clause_text(data, "income.distribution_power_clause_ref").capitalize(),
@@ -180,6 +192,9 @@ def _visible_placeholder_replacements(data: dict[str, Any], distribution: dict[s
         replacements[f"Director {index + 1}"] = director_names[index] if index < len(director_names) else ""
         replacements[f"Trustee {index + 1}"] = trustee_names[index] if index < len(trustee_names) else ""
         replacements[f"comma{index + 1}"] = ", " if index < len(trustee_names) - 1 else ""
+        replacements[f"{{{{Director{index + 1}}}}}"] = director_names[index] if index < len(director_names) else ""
+        replacements[f"{{{{Trustee{index + 1}}}}}"] = trustee_names[index] if index < len(trustee_names) else ""
+        replacements[f"{{{{Comma{index + 1}}}}}"] = ", " if index < len(trustee_names) - 1 else ""
     return replacements
 
 

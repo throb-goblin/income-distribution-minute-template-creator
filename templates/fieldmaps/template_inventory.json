@@ -1,0 +1,2158 @@
+{
+  "generated_by": "scripts/inventory_templates.py",
+  "source_dir": "templates\\source",
+  "source_templates": [
+    {
+      "path": "Trust Review Checklist.csv",
+      "template_kind": "checklist",
+      "package_part_count": 1,
+      "macros_present": false,
+      "activeX_controls_present": false,
+      "content_controls": [],
+      "bookmarks": [],
+      "fields": [],
+      "tables": [
+        {
+          "index": 1,
+          "row_count": 35,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            {
+              "row_id": "trust_name",
+              "Item": "Trust name",
+              "Applies to": "all"
+            },
+            {
+              "row_id": "trust_type",
+              "Item": "Trust type",
+              "Applies to": "all"
+            },
+            {
+              "row_id": "deed_date",
+              "Item": "Deed date",
+              "Applies to": "all"
+            },
+            {
+              "row_id": "deed_amendments_supplied",
+              "Item": "Deed amendments supplied",
+              "Applies to": "all"
+            },
+            {
+              "row_id": "settlor",
+              "Item": "Settlor",
+              "Applies to": "all"
+            }
+          ]
+        }
+      ],
+      "visible_placeholders": [],
+      "manual_page_break_branches": [],
+      "manual_tagging_required": [
+        "Verify CSV row IDs match templates/fieldmaps/checklist_helper_map.json.",
+        "Verify helper map exists: templates\\fieldmaps\\checklist_helper_map.json."
+      ]
+    },
+    {
+      "path": "templates\\source\\Discretionary Trust Minute Template (Master) - User Form.docm",
+      "template_kind": "discretionary_minute",
+      "package_part_count": 33,
+      "macros_present": true,
+      "activeX_controls_present": false,
+      "content_controls": [
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        }
+      ],
+      "bookmarks": [],
+      "fields": [],
+      "tables": [
+        {
+          "index": 1,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Director1}}",
+              "_____________________{{Director2}}",
+              "_____________________{{Director3}}"
+            ],
+            [
+              "_____________________{{Director4}}",
+              "_____________________{{Director5}}",
+              "_____________________{{Director6}}"
+            ]
+          ]
+        },
+        {
+          "index": 5,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 6,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 7,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 8,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 9,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 10,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 11,
+          "row_count": 1,
+          "column_counts": [
+            1
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}"
+            ]
+          ]
+        },
+        {
+          "index": 12,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 13,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 14,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 15,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}",
+              "_____________________{{Trustee2}}",
+              "_____________________{{Trustee3}}"
+            ],
+            [
+              "_____________________{{Trustee4}}",
+              "_____________________{{Trustee5}}",
+              "_____________________{{Trustee6}}"
+            ]
+          ]
+        }
+      ],
+      "visible_placeholders": [
+        "Beneficiaries",
+        "COMPANY A Pty Ltd",
+        "Capital",
+        "INDIVIDUAL A",
+        "INDIVIDUAL B",
+        "TRUSTEE A, in their capacity as trustee for the TRUST A",
+        "YEAR",
+        "{{Beneficiaries}}",
+        "{{Capital}}",
+        "{{Comma1}}",
+        "{{Comma2}}",
+        "{{Comma3}}",
+        "{{Comma4}}",
+        "{{Comma5}}",
+        "{{Director1}}",
+        "{{Director2}}",
+        "{{Director3}}",
+        "{{Director4}}",
+        "{{Director5}}",
+        "{{Director6}}",
+        "{{DistributableIncome}}",
+        "{{EstDate}}",
+        "{{Settlor1}}",
+        "{{TrustName}}",
+        "{{Trustee1}}",
+        "{{Trustee2}}",
+        "{{Trustee3}}",
+        "{{Trustee4}}",
+        "{{Trustee5}}",
+        "{{Trustee6}}",
+        "{{TrusteeACN}}",
+        "{{VDate}}",
+        "{{VestingDate}}"
+      ],
+      "manual_page_break_branches": [
+        "corporate_multi_director",
+        "corporate_sole_director",
+        "individual_sole_trustee",
+        "individual_multi_trustee"
+      ],
+      "manual_tagging_required": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    },
+    {
+      "path": "templates\\source\\Discretionary Trust Minute Template - User Form.docm",
+      "template_kind": "discretionary_minute",
+      "package_part_count": 33,
+      "macros_present": true,
+      "activeX_controls_present": false,
+      "content_controls": [
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        }
+      ],
+      "bookmarks": [
+        "_Hlk228962022"
+      ],
+      "fields": [],
+      "tables": [
+        {
+          "index": 1,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Director1}}",
+              "_____________________{{Director2}}",
+              "_____________________{{Director3}}"
+            ],
+            [
+              "_____________________{{Director4}}",
+              "_____________________{{Director5}}",
+              "_____________________{{Director6}}"
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 5,
+          "row_count": 1,
+          "column_counts": [
+            1
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}"
+            ]
+          ]
+        },
+        {
+          "index": 6,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Beneficiaries}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 7,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}",
+              "_____________________{{Trustee2}}",
+              "_____________________{{Trustee3}}"
+            ],
+            [
+              "_____________________{{Trustee4}}",
+              "_____________________{{Trustee5}}",
+              "_____________________{{Trustee6}}"
+            ]
+          ]
+        }
+      ],
+      "visible_placeholders": [
+        "Beneficiaries",
+        "COMPANY A Pty Ltd",
+        "Capital",
+        "INDIVIDUAL A",
+        "INDIVIDUAL B",
+        "TRUSTEE A, in their capacity as trustee for the TRUST A",
+        "YEAR",
+        "{{Beneficiaries}}",
+        "{{Capital}}",
+        "{{Comma1}}",
+        "{{Comma2}}",
+        "{{Comma3}}",
+        "{{Comma4}}",
+        "{{Comma5}}",
+        "{{Director1}}",
+        "{{Director2}}",
+        "{{Director3}}",
+        "{{Director4}}",
+        "{{Director5}}",
+        "{{Director6}}",
+        "{{DistributableIncome}}",
+        "{{EstDate}}",
+        "{{Settlor1}}",
+        "{{TrustName}}",
+        "{{Trustee1}}",
+        "{{Trustee2}}",
+        "{{Trustee3}}",
+        "{{Trustee4}}",
+        "{{Trustee5}}",
+        "{{Trustee6}}",
+        "{{TrusteeACN}}",
+        "{{VDate}}",
+        "{{VestingDate}}"
+      ],
+      "manual_page_break_branches": [
+        "corporate_multi_director",
+        "corporate_sole_director",
+        "individual_sole_trustee",
+        "individual_multi_trustee"
+      ],
+      "manual_tagging_required": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    },
+    {
+      "path": "templates\\source\\Unit Trust Minute Template (Master) - User Form.docm",
+      "template_kind": "unit_minute",
+      "package_part_count": 33,
+      "macros_present": true,
+      "activeX_controls_present": false,
+      "content_controls": [
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": null,
+          "alias": null,
+          "text": "\u2610"
+        },
+        {
+          "tag": null,
+          "alias": null,
+          "text": "\u2610"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        }
+      ],
+      "bookmarks": [],
+      "fields": [],
+      "tables": [
+        {
+          "index": 1,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 5,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Director1}}",
+              "_____________________{{Director2}}",
+              "_____________________{{Director3}}"
+            ],
+            [
+              "_____________________{{Director4}}",
+              "_____________________{{Director5}}",
+              "_____________________{{Director6}}"
+            ]
+          ]
+        },
+        {
+          "index": 6,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 7,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 8,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 9,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 10,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 11,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 12,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 13,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 14,
+          "row_count": 1,
+          "column_counts": [
+            1
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}"
+            ]
+          ]
+        },
+        {
+          "index": 15,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 16,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 17,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 18,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 19,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}",
+              "_____________________{{Trustee2}}",
+              "_____________________{{Trustee3}}"
+            ],
+            [
+              "_____________________{{Trustee4}}",
+              "_____________________{{Trustee5}}",
+              "_____________________{{Trustee6}}"
+            ]
+          ]
+        }
+      ],
+      "visible_placeholders": [
+        "Beneficiaries",
+        "Capital",
+        "Distributable Income",
+        "INDIVIDUAL A",
+        "INDIVIDUAL B",
+        "Unitholder",
+        "Unitholders",
+        "YEAR",
+        "{{Capital}}",
+        "{{Comma1}}",
+        "{{Comma2}}",
+        "{{Comma3}}",
+        "{{Comma4}}",
+        "{{Comma5}}",
+        "{{Director1}}",
+        "{{Director2}}",
+        "{{Director3}}",
+        "{{Director4}}",
+        "{{Director5}}",
+        "{{Director6}}",
+        "{{EstDate}}",
+        "{{InitialUnitholder1}}",
+        "{{NetIncome}}",
+        "{{TrustName}}",
+        "{{Trustee1}}",
+        "{{Trustee2}}",
+        "{{Trustee3}}",
+        "{{Trustee4}}",
+        "{{Trustee5}}",
+        "{{Trustee6}}",
+        "{{TrusteeACN}}",
+        "{{Unitholders}}",
+        "{{VDate}}",
+        "{{VestingDate}}"
+      ],
+      "manual_page_break_branches": [
+        "corporate_multi_director",
+        "corporate_sole_director",
+        "individual_sole_trustee",
+        "individual_multi_trustee"
+      ],
+      "manual_tagging_required": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    },
+    {
+      "path": "templates\\source\\Unit Trust Minute Template - User Form.docm",
+      "template_kind": "unit_minute",
+      "package_part_count": 33,
+      "macros_present": true,
+      "activeX_controls_present": false,
+      "content_controls": [
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": null,
+          "alias": null,
+          "text": "\u2610"
+        },
+        {
+          "tag": null,
+          "alias": null,
+          "text": "\u2610"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        },
+        {
+          "tag": "",
+          "alias": "Year",
+          "text": "YEAR"
+        }
+      ],
+      "bookmarks": [],
+      "fields": [],
+      "tables": [
+        {
+          "index": 1,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 2,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 3,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Director1}}",
+              "_____________________{{Director2}}",
+              "_____________________{{Director3}}"
+            ],
+            [
+              "_____________________{{Director4}}",
+              "_____________________{{Director5}}",
+              "_____________________{{Director6}}"
+            ]
+          ]
+        },
+        {
+          "index": 4,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 5,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 6,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 7,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 8,
+          "row_count": 1,
+          "column_counts": [
+            1
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}"
+            ]
+          ]
+        },
+        {
+          "index": 9,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "Unitholder",
+              "Ownership percentage"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 10,
+          "row_count": 5,
+          "column_counts": [
+            2
+          ],
+          "sample_rows": [
+            [
+              "{{Unitholders}}",
+              "Proportion"
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ],
+            [
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "index": 11,
+          "row_count": 2,
+          "column_counts": [
+            3
+          ],
+          "sample_rows": [
+            [
+              "_____________________{{Trustee1}}",
+              "_____________________{{Trustee2}}",
+              "_____________________{{Trustee3}}"
+            ],
+            [
+              "_____________________{{Trustee4}}",
+              "_____________________{{Trustee5}}",
+              "_____________________{{Trustee6}}"
+            ]
+          ]
+        }
+      ],
+      "visible_placeholders": [
+        "Capital",
+        "Distributable Income",
+        "Unitholder",
+        "Unitholders",
+        "YEAR",
+        "{{Capital}}",
+        "{{Comma1}}",
+        "{{Comma2}}",
+        "{{Comma3}}",
+        "{{Comma4}}",
+        "{{Comma5}}",
+        "{{Director1}}",
+        "{{Director2}}",
+        "{{Director3}}",
+        "{{Director4}}",
+        "{{Director5}}",
+        "{{Director6}}",
+        "{{EstDate}}",
+        "{{InitialUnitholder1}}",
+        "{{NetIncome}}",
+        "{{TrustName}}",
+        "{{Trustee1}}",
+        "{{Trustee2}}",
+        "{{Trustee3}}",
+        "{{Trustee4}}",
+        "{{Trustee5}}",
+        "{{Trustee6}}",
+        "{{TrusteeACN}}",
+        "{{Unitholders}}",
+        "{{VDate}}",
+        "{{VestingDate}}"
+      ],
+      "manual_page_break_branches": [
+        "corporate_multi_director",
+        "corporate_sole_director",
+        "individual_sole_trustee",
+        "individual_multi_trustee"
+      ],
+      "manual_tagging_required": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    }
+  ],
+  "manual_tagging_report": [
+    {
+      "template": "Trust Review Checklist.csv",
+      "items": [
+        "Verify CSV row IDs match templates/fieldmaps/checklist_helper_map.json.",
+        "Verify helper map exists: templates\\fieldmaps\\checklist_helper_map.json."
+      ]
+    },
+    {
+      "template": "templates\\source\\Discretionary Trust Minute Template (Master) - User Form.docm",
+      "items": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    },
+    {
+      "template": "templates\\source\\Discretionary Trust Minute Template - User Form.docm",
+      "items": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    },
+    {
+      "template": "templates\\source\\Unit Trust Minute Template (Master) - User Form.docm",
+      "items": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    },
+    {
+      "template": "templates\\source\\Unit Trust Minute Template - User Form.docm",
+      "items": [
+        "Verify page-break branch order for corporate and individual trustee execution blocks.",
+        "Verify repeatable party/distribution rows are populated from distribution.items."
+      ]
+    }
+  ]
+}

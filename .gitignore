@@ -20,17 +20,18 @@ Thumbs.db
 *.cer
 *.crt
 
-# Matter/client documents and proprietary Word templates.
+# Matter/client documents and generated working documents.
 *.pdf
 *.doc
 *.docx
-*.docm
 *.dotm
 *.dotx
+*.docm
 
-# Keep placeholder directories while excluding template binaries.
+# Keep source DOCM templates and placeholder directories.
 !templates/source/
 !templates/source/.gitkeep
+!templates/source/*.docm
 !templates/working/
 !templates/working/.gitkeep
 

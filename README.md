@@ -11,21 +11,20 @@ The intended workflow is:
 
 ## Public Repository Scope
 
-This public WIP repository intentionally excludes proprietary Word template binaries and matter-specific client documents.
+This public WIP repository includes the source `.docm` minute templates used by the template-preparation pipeline. It intentionally excludes matter-specific client documents and generated working files.
 
 Excluded:
 
-- source `.docm` / `.dotm` / `.docx` / `.dotx` templates
-- prepared working Word templates
 - matter-specific trust deeds and company reports
+- prepared working Word templates
 - logs, temporary files and local tunnel binaries
 
-Template folders are retained with placeholder files only:
+Template folders:
 
-- `templates/source/`
-- `templates/working/`
+- `templates/source/`: source `.docm` minute templates
+- `templates/working/`: generated macro-free working `.docx` files, excluded from Git
 
-To run full DOCX generation locally, supply your own source templates and run:
+To regenerate macro-free working templates locally, run:
 
 ```powershell
 python scripts/prepare_templates.py

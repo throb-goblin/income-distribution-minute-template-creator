@@ -195,6 +195,7 @@ def _table_inventory(path: Path) -> list[dict[str, Any]]:
 
 def _discover_dynamic_placeholders(text: str) -> list[str]:
     patterns = [
+        r"\{\{[^{}]+\}\}",
         r"\bDirector\s+[1-6]\b",
         r"\bTrustee\s+[1-6]\b",
         r"\bcomma[1-6]\b",
