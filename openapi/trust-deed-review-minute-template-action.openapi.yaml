@@ -1,13 +1,14 @@
 openapi: 3.1.0
 info:
-  title: Australian Trust Minute Action Service
+  title: Australian Trust Deed Review and Income Distribution Minute Template Action Service
   version: 0.1.0
   description: >
-    Custom GPT action service that extracts trust facts, generates a populated
-    Markdown checklist first for chat review, validates user-approved inputs,
-    and only then generates final Word checklist and minute template documents.
+    Custom GPT action service that extracts trust deed facts, generates a
+    populated Markdown checklist first for chat review, validates user-approved
+    inputs, and only then generates final Word checklist and income distribution
+    minute template documents.
 servers:
-  - url: https://8gbz9qr3-8000.aue.devtunnels.ms
+  - url: https://your-action-service.example.com
 paths:
   /health:
     get:

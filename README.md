@@ -1,6 +1,6 @@
-# Trust Minute Action Service WIP
+# Trust Deed Review And Income Distribution Minute Template
 
-This is a work-in-progress Python FastAPI action service for an Australian trust minute Custom GPT.
+This is a work-in-progress Python FastAPI action service for an Australian trust deed review and income distribution minute template Custom GPT.
 
 The intended workflow is:
 
@@ -63,7 +63,7 @@ python scripts/lint_templates.py
 
 ## GPT Assets
 
-The `gpt/` folder contains both action-backed and no-action GPT instruction assets. Use the no-action repository if you only need deed review and Markdown checklist generation without a hosted endpoint.
+The `gpt/` folder contains action-backed GPT instruction assets. Use the separate `trust-deed-review` repository if you only need deed review and Markdown checklist generation without a hosted endpoint.
 
 ## License
 
