@@ -10,7 +10,6 @@ import json
 import re
 import sys
 import zipfile
-import csv
 from pathlib import Path
 from typing import Any
 from xml.etree import ElementTree as ET
@@ -75,9 +74,9 @@ def main() -> None:
 
 def inventory_templates() -> dict[str, Any]:
     templates = []
-    checklist_csv = ROOT / "Trust Review Checklist.csv"
-    if checklist_csv.exists():
-        templates.append(inventory_checklist_csv(checklist_csv))
+    checklist_json = FIELDMAP_DIR / "trust_review_checklist.json"
+    if checklist_json.exists():
+        templates.append(inventory_checklist_json(checklist_json))
     for path in sorted(SOURCE_DIR.glob("*")):
         if path.suffix.lower() not in {".docx", ".docm", ".dotx", ".dotm"}:
             continue
@@ -90,19 +89,9 @@ def inventory_templates() -> dict[str, Any]:
     }
 
 
-def inventory_checklist_csv(path: Path) -> dict[str, Any]:
-    raw = path.read_bytes()
-    for encoding in ("utf-8-sig", "cp1252"):
-        try:
-            text = raw.decode(encoding)
-            break
-        except UnicodeDecodeError:
-            continue
-    else:
-        text = raw.decode("utf-8", errors="replace")
-    reader = csv.DictReader(text.splitlines())
-    rows = list(reader)
-    helper_map = FIELDMAP_DIR / "checklist_helper_map.json"
+def inventory_checklist_json(path: Path) -> dict[str, Any]:
+    checklist = json.loads(path.read_text(encoding="utf-8"))
+    rows = checklist.get("rows", [])
     return {
         "path": str(path.relative_to(ROOT)),
         "template_kind": "checklist",
@@ -112,12 +101,18 @@ def inventory_checklist_csv(path: Path) -> dict[str, Any]:
         "content_controls": [],
         "bookmarks": [],
         "fields": [],
-        "tables": [{"index": 1, "row_count": len(rows), "column_counts": [len(reader.fieldnames or [])], "sample_rows": rows[:5]}],
+        "tables": [{"index": 1, "row_count": len(rows), "column_counts": [3], "sample_rows": [
+            {
+                "row_id": row.get("row_id"),
+                "item": row.get("item"),
+                "applies_to": row.get("applies_to", "all"),
+            }
+            for row in rows[:5]
+        ]}],
         "visible_placeholders": [],
         "manual_page_break_branches": [],
         "manual_tagging_required": [
-            "Verify CSV row IDs match templates/fieldmaps/checklist_helper_map.json.",
-            f"Verify helper map exists: {helper_map.relative_to(ROOT)}.",
+            "Verify checklist rows and helper context map to canonical paths.",
         ],
     }
 

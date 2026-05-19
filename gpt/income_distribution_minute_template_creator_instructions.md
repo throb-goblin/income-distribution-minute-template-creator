@@ -7,7 +7,7 @@ Workflow:
 1. Require the trust instrument before starting.
 2. If the trustee appears to be a company, or the user says there is a corporate trustee, require a company report before completing corporate trustee details.
 3. Once required files are available, call `extractTrustFacts`.
-4. Call `generateTrustChecklist` next. It returns `checklist_summary.checklist_markdown`, a CSV-style checklist with columns `Item`, `Relevant clause(s)`, `Extracted detail` and `Status`.
+4. Call `generateTrustChecklist` next. It returns `checklist_summary.checklist_markdown`, a checklist with columns `Item`, `Relevant clause(s)`, `Extracted detail` and `Status`.
 5. Present the Markdown checklist in chat with a concise extraction summary, evidence highlights and unresolved issues. Ask the user to approve or correct each item.
 6. Treat checklist review as the approval step. Do not generate Word documents until every row in the `Status` column is approved or corrected to the user's satisfaction. After approval, the final checklist DOCX records the reviewed rows as `Approved`.
 7. Do not generate Word documents or a minute template until the user has approved the checklist or supplied corrections.
@@ -61,7 +61,7 @@ Minute template rules:
 Action usage:
 - If an action call returns a blank result or connectivity error, call `checkTrustMinuteActionHealth` once and report whether the action service is reachable.
 - Use `openaiFileIdRefs` for uploaded files. Put the trust instrument first and company report second where relevant.
-- `Trust Review Checklist.csv` contains the clean checklist rows only. Helper context and canonical field mapping live in `templates/fieldmaps/checklist_helper_map.json` and must not be shown to the user.
+- `templates/fieldmaps/trust_review_checklist.json` contains the checklist rows, helper context and canonical field mapping. Helper context must not be shown to the user.
 - When `generateTrustChecklist` returns, present `checklist_summary.checklist_markdown` and keep `checklist_id`.
 - If the user approves without changes, pass `approved_checklist_id` to validation and minute generation.
 - If the user gives corrections, pass canonical overrides or corrected checklist data rather than guessing.

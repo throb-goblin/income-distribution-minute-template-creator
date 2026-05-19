@@ -15,8 +15,7 @@
   "instructions_file": "gpt/income_distribution_minute_template_creator_instructions.md",
   "knowledge_files": [
     "gpt/field_dictionary.json",
-    "Trust Review Checklist.csv",
-    "templates/fieldmaps/checklist_helper_map.json"
+    "templates/fieldmaps/trust_review_checklist.json"
   ],
   "optional_files": [
     "gpt/income_distribution_minute_template_creator_conversation_starters.md"

@@ -1,7 +1,6 @@
 {
   "version": 1,
-  "description": "Helper and mapping context for Trust Review Checklist.csv. This file is for the service/model only; generated Markdown and DOCX output must not expose helper_context values.",
-  "source_csv": "Trust Review Checklist.csv",
+  "description": "Checklist row, helper and canonical mapping context for trust deed review. Helper context is for the model/service only and must not be shown to users.",
   "output_columns": [
     "Item",
     "Relevant clause(s)",
@@ -13,6 +12,7 @@
     "Review",
     "Approved"
   ],
+  "missing_clause_text": "Clause not found",
   "rows": [
     {
       "row_id": "trust_name",

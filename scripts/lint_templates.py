@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import csv
 import sys
 from pathlib import Path
 from typing import Any
@@ -40,29 +39,28 @@ def lint() -> list[str]:
         covered = set(policy.get("mapped", [])) | set(policy.get("deliberately_removed", [])) | set(policy.get("deliberately_retained", []))
         if not covered:
             errors.append(f"{fieldmap_path.name}: placeholder_policy does not cover any placeholders")
-    errors.extend(_lint_checklist_helper_map(schema))
+    errors.extend(_lint_checklist_definition(schema))
     return errors
 
 
-def _lint_checklist_helper_map(schema: dict[str, Any]) -> list[str]:
+def _lint_checklist_definition(schema: dict[str, Any]) -> list[str]:
     errors: list[str] = []
-    checklist_csv = ROOT / "Trust Review Checklist.csv"
-    helper_path = FIELDMAP_DIR / "checklist_helper_map.json"
-    if not checklist_csv.exists():
-        return [f"missing checklist CSV: {checklist_csv.name}"]
-    if not helper_path.exists():
-        return [f"missing checklist helper map: {helper_path.name}"]
-    csv_rows = list(csv.DictReader(checklist_csv.read_text(encoding="utf-8-sig").splitlines()))
-    csv_ids = {row.get("row_id") for row in csv_rows}
-    helper = json.loads(helper_path.read_text(encoding="utf-8"))
-    helper_rows = helper.get("rows", [])
-    helper_ids = {row.get("row_id") for row in helper_rows}
-    if csv_ids != helper_ids:
-        errors.append("checklist_helper_map.json: row_id set does not match Trust Review Checklist.csv")
-    for row in helper_rows:
+    checklist_path = FIELDMAP_DIR / "trust_review_checklist.json"
+    if not checklist_path.exists():
+        return [f"missing checklist definition: {checklist_path.name}"]
+    checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
+    rows = checklist.get("rows", [])
+    row_ids = [row.get("row_id") for row in rows]
+    if len(row_ids) != len(set(row_ids)):
+        errors.append("trust_review_checklist.json: duplicate row_id values")
+    for row in rows:
+        if not row.get("row_id"):
+            errors.append("trust_review_checklist.json: row missing row_id")
+        if not row.get("item"):
+            errors.append(f"trust_review_checklist.json: {row.get('row_id')} missing item")
         for path in [row.get("detail_path"), *row.get("clause_paths", [])]:
             if path and not schema_has_path(schema, path):
-                errors.append(f"checklist_helper_map.json: {row.get('row_id')} path not in schema: {path}")
+                errors.append(f"trust_review_checklist.json: {row.get('row_id')} path not in schema: {path}")
     return errors
 
 

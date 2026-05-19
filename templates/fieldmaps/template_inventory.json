@@ -3,7 +3,7 @@
   "source_dir": "templates\\source",
   "source_templates": [
     {
-      "path": "Trust Review Checklist.csv",
+      "path": "templates\\fieldmaps\\trust_review_checklist.json",
       "template_kind": "checklist",
       "package_part_count": 1,
       "macros_present": false,
@@ -21,28 +21,28 @@
           "sample_rows": [
             {
               "row_id": "trust_name",
-              "Item": "Trust name",
-              "Applies to": "all"
+              "item": "Trust name",
+              "applies_to": "all"
             },
             {
               "row_id": "trust_type",
-              "Item": "Trust type",
-              "Applies to": "all"
+              "item": "Trust type",
+              "applies_to": "all"
             },
             {
               "row_id": "deed_date",
-              "Item": "Deed date",
-              "Applies to": "all"
+              "item": "Deed date",
+              "applies_to": "all"
             },
             {
               "row_id": "deed_amendments_supplied",
-              "Item": "Deed amendments supplied",
-              "Applies to": "all"
+              "item": "Deed amendments supplied",
+              "applies_to": "all"
             },
             {
               "row_id": "settlor",
-              "Item": "Settlor",
-              "Applies to": "all"
+              "item": "Settlor",
+              "applies_to": "all"
             }
           ]
         }
@@ -50,8 +50,7 @@
       "visible_placeholders": [],
       "manual_page_break_branches": [],
       "manual_tagging_required": [
-        "Verify CSV row IDs match templates/fieldmaps/checklist_helper_map.json.",
-        "Verify helper map exists: templates\\fieldmaps\\checklist_helper_map.json."
+        "Verify checklist rows and helper context map to canonical paths."
       ]
     },
     {
@@ -2120,10 +2119,9 @@
   ],
   "manual_tagging_report": [
     {
-      "template": "Trust Review Checklist.csv",
+      "template": "templates\\fieldmaps\\trust_review_checklist.json",
       "items": [
-        "Verify CSV row IDs match templates/fieldmaps/checklist_helper_map.json.",
-        "Verify helper map exists: templates\\fieldmaps\\checklist_helper_map.json."
+        "Verify checklist rows and helper context map to canonical paths."
       ]
     },
     {

@@ -68,6 +68,7 @@ The `gpt/` folder contains action-backed GPT instruction assets:
 - `gpt/income_distribution_minute_template_creator_knowledge_manifest.json`: Setup checklist for GPT Knowledge and Actions.
 - `gpt/income_distribution_minute_template_creator_conversation_starters.md`: Optional conversation starters.
 - `gpt/field_dictionary.json`: Canonical fields and drafting guardrails.
+- `templates/fieldmaps/trust_review_checklist.json`: Checklist rows, helper context and canonical mapping.
 
 The OpenAPI schema is:
 

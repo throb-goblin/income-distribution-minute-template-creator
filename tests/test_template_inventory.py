@@ -19,10 +19,10 @@ def test_every_fieldmap_path_exists_in_schema() -> None:
             assert schema_has_path(schema, field["field_path"]), f"{path.name}: {field['field_path']}"
 
 
-def test_checklist_helper_map_paths_exist_in_schema() -> None:
+def test_checklist_definition_paths_exist_in_schema() -> None:
     schema = json.loads((ROOT / "schemas" / "trust_minute.schema.json").read_text(encoding="utf-8"))
-    helper_map = json.loads((ROOT / "templates" / "fieldmaps" / "checklist_helper_map.json").read_text(encoding="utf-8"))
-    for row in helper_map["rows"]:
+    checklist = json.loads((ROOT / "templates" / "fieldmaps" / "trust_review_checklist.json").read_text(encoding="utf-8"))
+    for row in checklist["rows"]:
         for path in [row.get("detail_path"), *row.get("clause_paths", [])]:
             if path:
                 assert schema_has_path(schema, path), f"{row['row_id']}: {path}"

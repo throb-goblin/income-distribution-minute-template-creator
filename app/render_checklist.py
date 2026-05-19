@@ -1,11 +1,9 @@
-"""CSV-backed checklist rendering for chat review and final DOCX output."""
+"""JSON-backed checklist rendering for chat review and final DOCX output."""
 
 from __future__ import annotations
 
-import csv
 import json
 import re
-from pathlib import Path
 from typing import Any, Callable
 
 from .word_ooxml import (
@@ -17,12 +15,10 @@ from .word_ooxml import (
 )
 
 
-CHECKLIST_CSV = ROOT / "Trust Review Checklist.csv"
-CHECKLIST_HELPER_MAP = ROOT / "templates" / "fieldmaps" / "checklist_helper_map.json"
+CHECKLIST_DEFINITION = ROOT / "templates" / "fieldmaps" / "trust_review_checklist.json"
 CLAUSE_NOT_FOUND = "Clause not found"
 NOT_FOUND = "Not found"
 HEADERS = ["Item", "Relevant clause(s)", "Extracted detail", "Status"]
-CSV_HEADERS = ["row_id", "Item", "Applies to"]
 
 
 RowBuilder = Callable[[dict[str, Any]], tuple[str, str]]
@@ -60,12 +56,9 @@ def render_checklist_markdown(data: dict[str, Any]) -> str:
 
 def build_checklist_rows(data: dict[str, Any], *, status_override: str | None = None) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
-    helper_rows = {row["row_id"]: row for row in _load_helper_rows()}
-    for template_row in _load_csv_rows():
-        row_id = template_row["row_id"]
-        item = template_row["Item"]
-        row_map = helper_rows.get(row_id, {"row_id": row_id, "item": item, "builder": "simple"})
-        if _row_applies(data, row_map, template_row):
+    for row_map in _load_checklist_rows():
+        item = row_map["item"]
+        if _row_applies(data, row_map):
             clause, detail = _row_values(data, row_map)
             if clause == CLAUSE_NOT_FOUND:
                 detail = CLAUSE_NOT_FOUND
@@ -91,33 +84,12 @@ def _row_values(data: dict[str, Any], row_map: dict[str, Any]) -> tuple[str, str
     return "", NOT_FOUND
 
 
-def _load_csv_rows() -> list[dict[str, str]]:
-    text = _read_text(CHECKLIST_CSV)
-    reader = csv.DictReader(text.splitlines())
-    rows = []
-    for row in reader:
-        item = (row.get("Item") or "").strip()
-        rows.append({
-            "row_id": (row.get("row_id") or _slug(item)).strip(),
-            "Item": item,
-            "Applies to": (row.get("Applies to") or "all").strip(),
-        })
+def _load_checklist_rows() -> list[dict[str, Any]]:
+    checklist = json.loads(CHECKLIST_DEFINITION.read_text(encoding="utf-8"))
+    rows = checklist.get("rows", [])
+    if not isinstance(rows, list):
+        raise ValueError("trust_review_checklist.json must contain a rows array")
     return rows
-
-
-def _load_helper_rows() -> list[dict[str, Any]]:
-    helper_map = json.loads(CHECKLIST_HELPER_MAP.read_text(encoding="utf-8"))
-    return helper_map.get("rows", [])
-
-
-def _read_text(path: Path) -> str:
-    raw = path.read_bytes()
-    for encoding in ("utf-8-sig", "utf-8", "cp1252"):
-        try:
-            return raw.decode(encoding)
-        except UnicodeDecodeError:
-            continue
-    return raw.decode("utf-8", errors="replace")
 
 
 def _simple_value(data: dict[str, Any], row_map: dict[str, Any]) -> tuple[str, str]:
@@ -128,8 +100,8 @@ def _simple_value(data: dict[str, Any], row_map: dict[str, Any]) -> tuple[str, s
     return clause, detail
 
 
-def _row_applies(data: dict[str, Any], row_map: dict[str, Any], template_row: dict[str, str]) -> bool:
-    applies_to = (template_row.get("Applies to") or row_map.get("applies_to") or "all").strip().lower()
+def _row_applies(data: dict[str, Any], row_map: dict[str, Any]) -> bool:
+    applies_to = (row_map.get("applies_to") or "all").strip().lower()
     if applies_to in {"", "all"}:
         return True
     trust_type = str(get_field_value(data, "trust.type", "") or "").strip().lower()

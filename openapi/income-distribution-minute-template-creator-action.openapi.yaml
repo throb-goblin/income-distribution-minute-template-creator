@@ -78,7 +78,7 @@ paths:
       x-openai-isConsequential: false
       summary: Generate the Markdown checklist
       description: >
-        Create the CSV-backed checklist in Markdown for chat review. The user
+        Create the checklist in Markdown for chat review. The user
         approves or corrects extracted details before Word documents are made.
       requestBody:
         required: true

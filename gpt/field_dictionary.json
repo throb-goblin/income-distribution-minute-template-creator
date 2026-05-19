@@ -43,8 +43,7 @@
     "trustee.is_corporate=false and trustees>=2": "Use individual multi-trustee execution."
   },
   "checklist_output": {
-    "source_rows": "Trust Review Checklist.csv",
-    "helper_map": "templates/fieldmaps/checklist_helper_map.json",
+    "definition": "templates/fieldmaps/trust_review_checklist.json",
     "columns": [
       "Item",
       "Relevant clause(s)",

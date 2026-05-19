@@ -1,7 +1,7 @@
 {
   "template": "generated landscape DOCX",
-  "source": "Trust Review Checklist.csv",
-  "description": "CSV-backed checklist field map. Relevant clause cells must use the same canonical paths as the minute templates.",
+  "source": "templates/fieldmaps/trust_review_checklist.json",
+  "description": "JSON-backed checklist field map. Relevant clause cells must use the same canonical paths as the minute templates.",
   "fields": [
     { "field_path": "trust.name", "placeholders": ["Trust Name"], "usage": "trust details" },
     { "field_path": "trust.type", "placeholders": [], "usage": "trust details" },

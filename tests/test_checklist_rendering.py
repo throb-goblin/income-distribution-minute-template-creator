@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import csv
 import json
 
 from app.render_checklist import render_checklist, render_checklist_markdown
@@ -52,15 +51,12 @@ def test_markdown_checklist_is_available_for_chat_review(sample_data: dict) -> N
     assert "Example Family Trust" in markdown
 
 
-def test_checklist_uses_clean_csv_and_json_helper_map() -> None:
-    csv_path = ROOT / "Trust Review Checklist.csv"
-    helper_path = ROOT / "templates" / "fieldmaps" / "checklist_helper_map.json"
-    rows = list(csv.DictReader(csv_path.read_text(encoding="utf-8-sig").splitlines()))
-    helper_map = json.loads(helper_path.read_text(encoding="utf-8"))
-    helper_rows = {row["row_id"]: row for row in helper_map["rows"]}
+def test_checklist_uses_json_definition() -> None:
+    checklist_path = ROOT / "templates" / "fieldmaps" / "trust_review_checklist.json"
+    checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
+    rows = checklist["rows"]
 
     assert rows
-    assert set(rows[0]) == {"row_id", "Item", "Applies to"}
-    assert all(row["row_id"] in helper_rows for row in rows)
-    assert helper_map["output_columns"] == ["Item", "Relevant clause(s)", "Extracted detail", "Status"]
-    assert any(helper_rows[row["row_id"]]["helper_context"]["extracted_detail"] for row in rows)
+    assert {"row_id", "item", "applies_to"}.issubset(rows[0])
+    assert checklist["output_columns"] == ["Item", "Relevant clause(s)", "Extracted detail", "Status"]
+    assert any(row["helper_context"]["extracted_detail"] for row in rows)
